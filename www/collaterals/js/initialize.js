@@ -21,8 +21,8 @@ var onDeviceReady = function(){
 };
 var createMap = function(){
 	navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-	currentLat = 46;
-	currentLng = -118;
+	//currentLat = 46;
+	//currentLng = -118;
       var options={
         elt:document.getElementById('map'),       /*ID of element on the page where you want the map added*/ 
         zoom:10,                                  /*initial zoom level of the map*/ 
@@ -45,7 +45,7 @@ var createMap = function(){
         $("#splash_content").animate({opacity : 1}, 3000);
       });
 }
-MQA.EventUtil.observe(window, 'load', function() {
+document.getElementById("body").onload = function() {
 	globalInterface = new Interface();
 	globalInterface.getSchools();
 	var img = document.getElementById("splash_img");
@@ -102,4 +102,4 @@ MQA.EventUtil.observe(window, 'load', function() {
 	if (deviceReady == true){
 		createMap();
 	}
-});
+};
