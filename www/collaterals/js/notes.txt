@@ -1,0 +1,85 @@
+<html>
+  <head>
+	
+	<style type="text/css">
+	.mqabasicwnd-content {
+	 white-space: nowrap;
+	 font-weight: bold;
+	 font-size: 1.25em;
+	 color: #000000;
+	}
+	</style>
+	
+    <script src="http://www.mapquestapi.com/sdk/js/v7.0.s/mqa.toolkit.js?key=Kmjtd%7Cluua2qu7n9%2C7a%3Do5-lzbgq"></script>
+
+    <script type="text/javascript">
+
+      /*An example of using the MQA.EventUtil to hook into the window load event and execute defined function
+      passed in as the last parameter. You could alternatively create a plain function here and have it
+      executed whenever you like (e.g. <body onload="yourfunction">).*/
+
+      MQA.EventUtil.observe(window, 'load', function() {
+
+        /*Create an object for options*/
+        var options={
+          elt:document.getElementById('map'),        /*ID of element on the page where you want the map added*/
+          zoom:10,                                   /*initial zoom level of map*/
+          latLng:{lat:39.743943, lng:-105.020089},   /*center of map in latitude/longitude*/
+          mtype:'map'                                /*map type (map)*/
+        };
+
+        /*Construct an instance of MQA.TileMap with the options object*/
+        window.map = new MQA.TileMap(options);
+
+        var poi=new MQA.Poi({lat:39.743943, lng:-105.020089});
+        poi.setBias({x:50,y:-50});
+        poi.setRolloverContent('Sports Authority Field at Mile High');
+        poi.setInfoContentHTML('Home of the Denver Broncos');
+
+        map.addShape(poi);
+
+        MQA.EventManager.addListener(poi, 'mousedown', eventRaised);
+        MQA.EventManager.addListener(poi, 'mouseup', eventRaised);
+        MQA.EventManager.addListener(poi, 'mouseover', eventRaised);
+        MQA.EventManager.addListener(poi, 'mouseout', eventRaised);
+        MQA.EventManager.addListener(poi, 'dblclick', eventRaised);
+        MQA.EventManager.addListener(poi, 'click', remove);
+        MQA.EventManager.addListener(poi, 'removed', eventRaised);
+        MQA.EventManager.addListener(poi, 'rolloveropen', eventRaised);
+        MQA.EventManager.addListener(poi, 'rolloverclose', eventRaised);
+        MQA.EventManager.addListener(poi, 'infowindowopen', eventRaised);
+        MQA.EventManager.addListener(poi, 'infowindowclose', eventRaised);
+        MQA.EventManager.addListener(poi, 'infowindowmouseoverstate', eventRaised);
+        MQA.EventManager.addListener(poi, 'infowindowmouseoutstate', eventRaised);
+
+        /*Write out events to events div*/
+        function eventRaised(evt){
+          var e=document.createElement('div');
+          e.innerHTML=evt.eventName;
+          var eDiv=document.getElementById('eventsFired');
+          eDiv.insertBefore(e, eDiv.firstChild);
+        }
+function remove(evt){map.removeShape(poi);}
+ MQA.withModule('directions', function() {
+          /*Uses the MQA.TileMap.addRoute function (added to the TileMap with the directions module)
+          passing in an array of location objects as the only parameter.*/
+          map.addRoute([
+            {postalCode: '80127'},
+            {city: 'Steamboat Springs', state: 'CO'}
+          ]);
+        });
+      });
+	//fade in logo
+    </script>
+  </head>
+
+  <body>
+	<div id='map' style='width:750px; height:280px;'></div>
+
+    <p><a href="javascript:window.map.removeShape(poi);">Remove POI</a></p>
+
+    <h3>Events Fired</h3>
+    <div id="eventsFired" style="margin:10px; padding:10px; width:785px; height:200px; overflow:auto; border:dotted 1px #eeeeee"></div>
+  </body>
+</html>
+			

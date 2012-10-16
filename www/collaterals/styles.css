@@ -1,0 +1,123 @@
+body{
+	position: relative;
+}
+.mask{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: 11;
+	background-color: #ffd600;
+}
+.splash_body{
+	background-color: #ffd600;
+	width: 100%
+}
+.splash_content{
+	display: none;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	z-index: 10;
+}
+.splash_img{
+	display: block;
+	margin-right: auto;
+	margin-left:auto;
+}
+.splash_button{
+	display: block;
+	margin-right: auto;
+	margin-left:auto;
+	cursor: pointer;
+}
+.interface_body{
+	background-color: #fff;
+	width: 100%;
+}
+.sort_interface{
+	position: fixed;
+	background-color: #fff;
+	display: none;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	z-index: 9;
+}
+.sort_inner_wrapper{
+	position: relative;
+}
+.sort_inner_wrapper tr td{
+	text-align: center;
+}
+.inline{
+	display: inline;
+}
+.sort_tab{
+	position: absolute;
+}
+.list_interface_wrapper{
+	overflow-x: hidden;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+.list_interface{
+	position: relative;
+	width: 100%;
+	display: none;
+	background-color: #000;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	z-index: 8;
+}
+.list_interface_tab{
+	position: relative;
+	cursor: pointer;
+}
+.map{
+	display: block;
+	position: absolute;
+	top: 0px;
+}
+.directions{
+	display: none;
+	position: absolute;
+	top: 0px;
+}
+.border_bottom{
+	border-bottom: 1px solid #f0f0f0;
+}
+.school_info{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+	top: 0px;
+}
+.centered_table{
+	margin-left: auto;
+	margin-right: auto;
+}
+.table_heading{
+	font-weight: bolder;
+	font-size: large;
+	text-align: center;
+}
+.school_info_inner_wrapper{
+}
+.school{
+	border-bottom: 1px solid #f0f0f0;
+	clear: both;
+}
+.list_entry_icon{
+	float: right;
+}
+.list_entry_sort_data{
+	color: #fff;
+	font-size: .75em;
+}
+a{
+	border: 0px;
+	color: #fff;
+}
+img{
+	border: 0px;
+}
