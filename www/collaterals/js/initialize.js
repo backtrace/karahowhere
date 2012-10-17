@@ -45,9 +45,8 @@ var createMap = function(){
         $("#splash_content").animate({opacity : 1}, 3000);
       });
 }
-console.log("JS loading");
 function loaded(){
-	console.log("document ready");
+	console.log("'loaded' fired");
 	globalInterface = new Interface();
 	console.log("globalInterface created");
 	globalInterface.getSchools();
@@ -64,7 +63,7 @@ function loaded(){
 		button.height = img.height/4;
 		routeTab.height = 3*img.height/5;
 		schoolTab.height = 3*img.height/5;
-		sortTab.height = img.height/4
+		sortTab.height = img.height/4;	
 	}
 	else if (windowWidth < 2*img.width){
 		img.width = windowWidth/2;
