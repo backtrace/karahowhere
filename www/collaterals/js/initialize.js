@@ -107,4 +107,4 @@ function loaded(){
 	if (deviceReady == true){
 		createMap();
 	}
-});
+}
