@@ -45,9 +45,13 @@ var createMap = function(){
         $("#splash_content").animate({opacity : 1}, 3000);
       });
 }
-$(document).ready(function() {
+console.log("JS loading");
+function loaded(){
+	console.log("document ready");
 	globalInterface = new Interface();
+	console.log("globalInterface created");
 	globalInterface.getSchools();
+	console.log("schools retrieved");
 	var img = document.getElementById("splash_img");
 	var button = document.getElementById("splash_button");
 	var routeTab = document.getElementById("route_tab");
@@ -69,6 +73,7 @@ $(document).ready(function() {
 		schoolTab.width = img.width/5;
 		sortTab.width = 3*img.width/5;
 	}
+	console.log("heights and widths calculated");
 	$("#body").css({width: windowWidth});
 	$("#list_interface_wrapper").css({width: windowWidth});
 	if ($("#list_interface").height() < windowHeight){
