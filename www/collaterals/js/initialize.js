@@ -45,7 +45,7 @@ var createMap = function(){
         $("#splash_content").animate({opacity : 1}, 3000);
       });
 }
-document.getElementById("body").onload = function() {
+$(document).ready(function() {
 	globalInterface = new Interface();
 	globalInterface.getSchools();
 	var img = document.getElementById("splash_img");
@@ -102,4 +102,4 @@ document.getElementById("body").onload = function() {
 	if (deviceReady == true){
 		createMap();
 	}
-};
+});
